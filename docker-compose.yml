@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: shelfrate-db
+    environment:
+      POSTGRES_USER: shelfrate
+      POSTGRES_PASSWORD: shelfrate_dev
+      POSTGRES_DB: shelfrate
+    ports:
+      - "5433:5432"  # 5433 to avoid clashes with local Postgres
+    volumes:
+      - shelfrate_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shelfrate -d shelfrate"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  shelfrate_pgdata:
