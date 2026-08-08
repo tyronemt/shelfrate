@@ -8,8 +8,8 @@ class Settings(BaseSettings):
     )
 
     # Database
-    database_url: str = "postgresql+asyncpg://shelfrate:shelfrate_dev@localhost:5433/shelfrate"
-    sync_database_url: str = "postgresql://shelfrate:shelfrate_dev@localhost:5433/shelfrate"
+    database_url: str = "postgresql+psycopg://shelfrate:shelfrate_dev@localhost:5433/shelfrate"
+    sync_database_url: str = "postgresql+psycopg://shelfrate:shelfrate_dev@localhost:5433/shelfrate"
 
     # Auth
     secret_key: str = "change-me"

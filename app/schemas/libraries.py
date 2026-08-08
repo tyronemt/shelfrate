@@ -1,6 +1,6 @@
 from datetime import datetime, time
 from typing import Optional, List
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import Field
 from pydantic import BaseModel, ConfigDict, model_validator 
 from geoalchemy2.shape import to_shape 
 
