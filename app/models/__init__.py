@@ -217,9 +217,9 @@ class Review(Base):
     crowdedness:         Mapped[Optional[str]] = mapped_column(String(20))
     body:                Mapped[str]      = mapped_column(Text)
     created_at:          Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    library: Mapped["Library"] = relationship(back_populates="reviews")
 
 
-# Make Alembic happy — explicit imports so Base.metadata sees everything
 __all__ = ["Base", "User", "Library", "Disclaimer", "SpeedTest", "Review",
            "SystemType", "AccessLevel", "WifiPolicy", "NoisePolicy",
            "FoodPolicy", "ParkingType", "WorkZone", "WalkInPolicy"]
